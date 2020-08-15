@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <!--   <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script> -->
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
+  <script src="https://raw.githack.com/jeromeetienne/AR.js/1.7.7/aframe/build/aframe-ar.js"></script>
+  <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-html-shader@0.2.0/dist/aframe-html-shader.min.js"></script>
+
+  <body>
+    <a-scene
+      id="arscene"
+      embedded
+      arjs="trackingMethod: best;debugUIEnabled:false;patternRatio:0.90"
+      vr-mode-ui="enabled: false"
+      style="z-index:1"
+    >
+      <a-assets>
+        <img
+          id="pink"
+          src="https://img.gs/bbdkhfbzkk/stretch/http://i.imgur.com/1hyyIUi.jpg"
+          crossorigin="anonymous"
+        />
+
+        <a-asset-item
+          id="optimerBoldFont"
+          src="https://rawgit.com/mrdoob/three.js/dev/examples/fonts/optimer_bold.typeface.json"
+        ></a-asset-item>
+
+        <video
+          id="samplevid"
+          autoplay
+          loop="true"
+          src="sample-mp4-file.mp4"
+          crossorigin="anonymous"
+        ></video>
+      </a-assets>
+
+      <a-marker
+        type="pattern"
+        url="https://cdn.glitch.com/251e1340-6b1a-4805-a134-2a8574fd3c3a%2Fpattern-week40.patt?v=1575364372635"
+      >
+        <!--         <a-entity
+          position="0 0 0"
+          geometry="primitive: box; width: 1; height: 1; depth: 1"
+        ></a-entity> -->
+        <!--         <a-text
+          id="count_down"
+          color="red"
+          scale="3 3 3"
+          value="Hello, World!"
+        ></a-text> -->
+        <!-- rotation="-90 -180 0" -->
+        <a-entity
+          id="myCountDownTimer"
+          rotation="-45 -180 0"
+          scale="0.4 0.4 0.4"
+          position="2.75 0 0"
+          text-geometry="value: 0:0:0; bevelEnabled: true; bevelSize: 0.1; bevelThickness: 0.1; curveSegments: 1; size: 1.8; height: 0.5;"
+          material="color:lavenderblush; metalness:1; roughness: 0; sphericalEnvMap: #pink;"
+        ></a-entity>
+        <a-video
+          rotation="-90 180 0"
+          id="plane_vid_container"
+          src="#samplevid"
+          width="2"
+          height="1"
+          position="0 0 0"
+          visible="false"
+        ></a-video>
+      </a-marker>
+
+      <a-entity camera></a-entity>
+    </a-scene>
+
+    <button
+      onclick="if(full){closeFullscreen();}else{openFullscreen();}"
+      style="position: absolute;
+    bottom: 0px;
+    right: 0px;
+    padding: 20px;
+    color: white;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    background-image: url(https://logomakr.com/media/clipart/tnp_landan/1408677.svg);"
+    ></button>
+
+    <script>
+      // document.body.addEventListener("click", () => {
+      //   document.getElementById("samplevid").play();
+      // });
+
+      var countDownDate = new Date("Aug 9, 2020 14:04:59").getTime();
+
+      var x = setInterval(function() {
+        var now = new Date().getTime();
+
+        var distance = countDownDate - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document
+          .getElementById("myCountDownTimer")
+          .setAttribute(
+            "text-geometry",
+            "value",
+            days + "d " + hours + "h " + minutes + "m " + seconds + "s "
+          );
+
+        if (distance < 0) {
+          clearInterval(x);
+          // document.getElementById("demo").innerHTML = "EXPIRED";
+          document
+            .getElementById("myCountDownTimer")
+            .setAttribute("visible", false);
+
+          document
+            .getElementById("plane_vid_container")
+            .setAttribute("visible", true);
+
+          document.getElementById("samplevid").play();
+        }
+      }, 1000);
+
+      var full = false;
+      var elem = document.documentElement;
+
+      function openFullscreen() {
+        full = true;
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) {
+          /* Firefox */
+          elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) {
+          /* Chrome, Safari & Opera */
+          elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+          /* IE/Edge */
+          elem.msRequestFullscreen();
+        }
+      }
+
+      function closeFullscreen() {
+        full = false;
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        }
+      }
+    </script>
+  </body>
+</html>
