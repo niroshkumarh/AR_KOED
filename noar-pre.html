@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-html-shader@0.2.0/dist/aframe-html-shader.min.js"></script>
+
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-asset-item
+          id="optimerBoldFont"
+          src="https://rawgit.com/mrdoob/three.js/dev/examples/fonts/optimer_bold.typeface.json"
+        ></a-asset-item>
+
+        <a-asset-item id="scroll_gltf" src="./model.gltf"></a-asset-item>
+
+        <!--         <video
+          id="samplevid"
+          src="sample-mp4-file.mp4"
+          crossorigin="anonymous"
+        ></video> -->
+      </a-assets>
+      
+<!--       
+      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+      
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+       -->
+      <a-cylinder
+        position="0 0 0"
+        radius="0.5"
+        height="1.5"
+        color="#FFC65D"
+      ></a-cylinder>
+      
+      <a-plane
+        position="0 0 0"
+        rotation="-90 0 0"
+        width="4"
+        height="4"
+        color="#7BC8A4"
+      ></a-plane>
+       
+      <a-entity gltf-model="#scroll_gltf" position="-0.5 -1 -0.25"></a-entity>
+      <!--       <a-video
+        position="-1 0.5 -2"
+        src="#samplevid"
+        width="2"
+        height="1"
+      ></a-video> -->
+      <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+    <button
+      onclick="if(full){closeFullscreen();}else{openFullscreen();}"
+      style="position: absolute;
+    bottom: 0px;
+    right: 0px;
+    padding: 20px;
+    color: white;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    background-image: url(https://logomakr.com/media/clipart/tnp_landan/1408677.svg);"
+    ></button>
+
+    <script>
+      // document.body.addEventListener("click", () => {
+      //   document.getElementById("samplevid").play();
+      // });
+      
+      
+
+      var countDownDate = new Date("Aug 15, 2020 15:37:25").getTime();
+
+      // Update the count down every 1 second
+      var x = setInterval(function() {
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="demo"
+        //document.getElementById("myCountDownTimer").setAttribute("text-geometry","value",days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
+
+        // If the count down is finished, write some text
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("demo").innerHTML = "EXPIRED";
+        }
+      }, 1000);
+
+      var full = false;
+      var elem = document.documentElement;
+      function openFullscreen() {
+        full = true;
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) {
+          /* Firefox */
+          elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) {
+          /* Chrome, Safari & Opera */
+          elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+          /* IE/Edge */
+          elem.msRequestFullscreen();
+        }
+      }
+
+      function closeFullscreen() {
+        full = false;
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        }
+      }
+    </script>
+  </body>
+</html>

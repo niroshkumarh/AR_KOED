@@ -1,0 +1,262 @@
+
+
+<!-- 2500 px -->
+<!DOCTYPE html>
+<html>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
+  <script src="https://raw.githack.com/jeromeetienne/AR.js/1.7.7/aframe/build/aframe-ar.js"></script>
+
+  <body>
+    <a-scene
+      id="arscene"
+      embedded
+      arjs="trackingMethod: best;debugUIEnabled:false;patternRatio:0.90"
+      vr-mode-ui="enabled: false"
+      style="z-index:1"
+    >
+      <a-assets>
+        <a-asset-item id="scroll_gltf" src="./model.gltf"></a-asset-item>
+
+        <img id="my-image" src="KCT_LOGO.jpg" />
+        <img
+          id="koed-texture"
+          src="https://cdn.glitch.com/761afad3-b789-4a33-9682-bae17e279627%2FKOED_png-1.png?v=1597488815265"
+        />
+
+        <img
+          id="koed"
+          src="https://cdn.glitch.com/761afad3-b789-4a33-9682-bae17e279627%2FKOED%20logo.png?v=1597225306016"
+        />
+      </a-assets>
+
+      <!--       <a-marker
+        type="pattern"
+        url="https://cdn.glitch.com/761afad3-b789-4a33-9682-bae17e279627%2Fpattern-KCT_LOGO.patt?v=1597066769287"
+      > -->
+
+      <!--       <a-marker
+        type="pattern"
+        url="https://cdn.glitch.com/761afad3-b789-4a33-9682-bae17e279627%2Fkct_pattern_logo.patt?v=1597768829109"
+      > -->
+      
+       <a-marker
+        type="pattern"
+        url="https://cdn.glitch.com/761afad3-b789-4a33-9682-bae17e279627%2Fpattern-KCT%20logo%20(9).patt?v=1597854215037"
+      >
+        <a-image
+          rotation="-60 0 0"
+          scale="2.5 2.5 2.5"
+          position="0 0 0"
+          src="#koed-texture"
+        ></a-image>
+      </a-marker>
+
+
+    <a-marker
+        type="pattern"
+        url="https://cdn.glitch.com/761afad3-b789-4a33-9682-bae17e279627%2Fpattern-KCT%20logo%20(10).patt?v=1597854215037"
+      >
+        <a-image
+          rotation="-60 0 0"
+          scale="2.5 2.5 2.5"
+          position="0 0 0"
+          src="#koed-texture"
+        ></a-image>
+      </a-marker>
+
+
+    <a-marker
+        type="pattern"
+        url="https://cdn.glitch.com/761afad3-b789-4a33-9682-bae17e279627%2Fpattern-KCT%20logo%20(11).patt?v=1597854215037"
+      >
+        <a-image
+          rotation="-60 0 0"
+          scale="2.5 2.5 2.5"
+          position="0 0 0"
+          src="#koed-texture"
+        ></a-image>
+      </a-marker>
+
+
+    <a-marker
+        type="pattern"
+        url="https://cdn.glitch.com/761afad3-b789-4a33-9682-bae17e279627%2Fpattern-KCT%20logo%20(12).patt?v=1597854215037"
+      >
+        <a-image
+          rotation="-60 0 0"
+          scale="2.5 2.5 2.5"
+          position="0 0 0"
+          src="#koed-texture"
+        ></a-image>
+      </a-marker>
+
+
+    <a-marker
+        type="pattern"
+        url="https://cdn.glitch.com/761afad3-b789-4a33-9682-bae17e279627%2Fpattern-KCT%20logo%20(13).patt?v=1597854215037"
+      >
+        <a-image
+          rotation="-60 0 0"
+          scale="2.5 2.5 2.5"
+          position="0 0 0"
+          src="#koed-texture"
+        ></a-image>
+      </a-marker>
+
+
+    <a-marker
+        type="pattern"
+        url="https://cdn.glitch.com/761afad3-b789-4a33-9682-bae17e279627%2Fpattern-KCT%20logo%20(14).patt?v=1597854215037"
+      >
+        <a-image
+          rotation="-60 0 0"
+          scale="2.5 2.5 2.5"
+          position="0 0 0"
+          src="#koed-texture"
+        ></a-image>
+      </a-marker>
+
+
+    <a-marker
+        type="pattern"
+        url="https://cdn.glitch.com/761afad3-b789-4a33-9682-bae17e279627%2Fpattern-KCT%20logo%20(15).patt?v=1597854215037"
+      >
+        <a-image
+          rotation="-60 0 0"
+          scale="2.5 2.5 2.5"
+          position="0 0 0"
+          src="#koed-texture"
+        ></a-image>
+      </a-marker>
+
+
+    <a-marker
+        type="pattern"
+        url="https://cdn.glitch.com/761afad3-b789-4a33-9682-bae17e279627%2Fpattern-KCT%20logo%20(16).patt?v=1597854215037"
+      >
+        <a-image
+          rotation="-60 0 0"
+          scale="2.5 2.5 2.5"
+          position="0 0 0"
+          src="#koed-texture"
+        ></a-image>
+      </a-marker>
+
+
+    <a-marker
+        type="pattern"
+        url="https://cdn.glitch.com/761afad3-b789-4a33-9682-bae17e279627%2Fpattern-KCT%20logo%20(17).patt?v=1597854215037"
+      >
+        <a-image
+          rotation="-60 0 0"
+          scale="2.5 2.5 2.5"
+          position="0 0 0"
+          src="#koed-texture"
+        ></a-image>
+      </a-marker>
+
+
+    <a-marker
+        type="pattern"
+        url="https://cdn.glitch.com/761afad3-b789-4a33-9682-bae17e279627%2Fpattern-KCT%20logo%20(18).patt?v=1597854215037"
+      >
+        <a-image
+          rotation="-60 0 0"
+          scale="2.5 2.5 2.5"
+          position="0 0 0"
+          src="#koed-texture"
+        ></a-image>
+      </a-marker>
+
+      
+      
+      <a-entity style="z-index:-1;" camera></a-entity>
+    </a-scene>
+
+    <button
+      onclick="if(full){closeFullscreen();}else{openFullscreen();}"
+      style="position: absolute;
+      bottom: 0px;
+      right: 0px;
+      padding: 20px;
+      color: white;
+      z-index:1;
+      border: none;
+      background-color: rgba(255, 255, 255, 0.1);
+      background-image: url(https://logomakr.com/media/clipart/tnp_landan/1408677.svg);"
+    ></button>
+
+    <div
+      id="koed__link1"
+      href="https://bookoed.iqube.io"
+      style="position: absolute;
+      bottom: 50px;
+      right: 0px;
+             z-index:1;
+             
+      background-color:#FD9135;
+      padding-top:10px;
+      border: none; "
+    >
+      <img
+        id="koed__link2"
+        width="40"
+        height="26"
+        src="https://cdn.glitch.com/761afad3-b789-4a33-9682-bae17e279627%2FKOED%20logo.png?v=1597225306016"
+      />
+    </div>
+
+    <script>
+      // window.onload = function() {
+      //   document
+      //     .querySelector("#koed_link")
+      //     .addEventListener("collide", function() {
+      //       // here you can change also a-scene or a-entity properties, like
+      //       // changing your 3D model source, size, position and so on
+      //       // or you can just open links, trigger actions...
+      //       alert("Hi there!");
+      //     });
+      // };
+      window.onload = function() {
+        document.querySelector("#koed__link1").addEventListener("click", () => {
+          window.location.href = "https://bookoed.iqube.io";
+        });
+        document.querySelector("#koed__link2").addEventListener("click", () => {
+          window.location.href = "https://bookoed.iqube.io";
+        });
+      };
+      var full = false;
+      var elem = document.documentElement;
+
+      function openFullscreen() {
+        full = true;
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) {
+          /* Firefox */
+          elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) {
+          /* Chrome, Safari & Opera */
+          elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+          /* IE/Edge */
+          elem.msRequestFullscreen();
+        }
+      }
+
+      function closeFullscreen() {
+        full = false;
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        }
+      }
+    </script>
+  </body>
+</html>
